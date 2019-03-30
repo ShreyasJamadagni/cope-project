@@ -1,0 +1,47 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <h1> Submitted articles to review</h1>
+    {% for article in articles %}
+    <article class="content-section">
+    <div class="media-body">
+    <div class="article-metadata">
+        <form method="GET" action="{% url 'review' %}">
+            {% csrf_token %}
+            <fieldset>
+                <a class="mr-2" href="#" id="article-to-review">{{ article.author }}</a>
+                <!-- <small class="text-muted">{{ post.date_posted }}</small> -->
+                <h2><a class="article-title" href="#" name="title2">{{ article.title }}</a></h2>
+                <input type="hidden" name="title" value="{{ article.title }}" />
+                <p class="article-content">{{ article.content }}</p>
+                <button type="submit" name="button" class="btn btn-primary">Review</button>
+            </fieldset>
+        </form>
+    </div>
+    </div>
+    </article>
+    {% endfor %}
+
+    {% if article %}
+        <article class="media content-section">
+        <div class="media-body">
+        <div class="article-metadata">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <a class="mr-2" href="#" id="article-to-review">{{ article.author }}</a>
+                    <!-- <small class="text-muted">{{ post.date_posted }}</small> -->
+                    <h2><a class="article-title" href="#">{{ article.title }}</a></h2>
+                    <input type="hidden" name="title" value="{{ article.title }}" />
+                    <p class="article-content">{{ article.content }}</p>
+                    <button type="submit" name="accept" class="btn btn-primary" value="R">Accept</button>
+                    <button type="submit" name="reject" class="btn btn-primary" value="R">Reject</button>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+        </article>
+    {% endif %}
+
+
+{% endblock content %}

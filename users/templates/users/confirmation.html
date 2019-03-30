@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="form-group border-bottom">Confirm registration</legend>
+            <input type="text" name="regCode" placeholder="Your registration code form your email" style="width: 100%;">
+        </fieldset>
+        <button type="submit" name="regCode-Submit" class="btn btn-secondary">Confirm</button>
+    </form>
+{% endblock content %}

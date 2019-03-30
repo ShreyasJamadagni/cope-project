@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>Submit your article here!</h1>
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form|crispy }}
+        </fieldset>
+        <button type="submit" name="submit-button" class="btn btn-info">Submit!</button>
+    </form>
+
+{% endblock content %}
