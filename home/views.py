@@ -19,7 +19,7 @@ def contact(request):
                 form.cleaned_data['message'] + "\n" + e,
                 form.cleaned_data['email'],
                 [settings.EMAIL_HOST_USER],
-                fail_silently=False
+                fail_silently=True
             )
             form.save()
             return redirect('page-home')

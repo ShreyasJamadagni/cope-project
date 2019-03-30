@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class UnregisteredUser(models.Model):
-    username = models.TextField()
+    username = models.CharField(max_length=100)
     email = models.EmailField()
     password = models.TextField()
     registration_code = models.TextField()

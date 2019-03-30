@@ -4,10 +4,17 @@
     <h1>Curently discussed topics</h1>
     {% for topic in topics %}
     <form class="" action="{% url 'debate-home' %}" method="get">
-
-    </form>
         <div class="">
-            <h3><a href="{{ topic.topic }}" action="{% url 'debate-home' %}">{{ topic.topic }}</a></h3>
+            <input type="hidden" name="topic" value="{{ topic.topic }}">
+            <h3>{{ topic.topic }}</h3>
+            <!-- <p>{{ topic.description }}</p> -->
+            <button type="submit" name="button" style="float: right" class="btn btn-primary">View</button>
         </div>
+    </form>
     {% endfor %}
+
+    <div class="">
+        {{ topic }}
+        <!-- {{ comments }} -->
+    </div>
 {% endblock content %}

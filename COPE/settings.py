@@ -25,7 +25,7 @@ SECRET_KEY = 'y2=mdx86#=l+i50$sk1a@9vsz0i!b(0q1&pr4^i!*)r(imx66f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://thawing-thicket-30339.herokuapp.com/"]
 
 
 # Application definition
@@ -132,11 +132,11 @@ LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = '	smtp.sendgrid.net'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'shreygj@gmail.com'
-EMAIL_HOST_PASSWORD = 'munda2002'
+EMAIL_HOST_USER = 'shreyasgirish'
+EMAIL_HOST_PASSWORD = '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'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

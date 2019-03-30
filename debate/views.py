@@ -8,7 +8,10 @@ from .models import Topic
 @login_required
 def home(request):
     topics = Topic.objects.all()
-    print(request.GET)
+
+    if request.method == 'GET' and request.GET.get('topic') != None:
+        return render(request, 'debate/home.html', {'title': 'Debate', 'topic': Topic.objects.get(topic=request.GET.get('topic'))})
+
     return render(request, 'debate/home.html', {'title': 'Debate', 'topics': topics})
 
 @login_required

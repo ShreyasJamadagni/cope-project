@@ -6,8 +6,8 @@
     <article class="content-section">
     <div class="media-body">
     <div class="article-metadata">
-        <form method="GET" action="{% url 'review' %}">
-            {% csrf_token %}
+        <form method="get" action="{% url 'review' %}">
+            <!-- {% csrf_token %} -->
             <fieldset>
                 <a class="mr-2" href="#" id="article-to-review">{{ article.author }}</a>
                 <!-- <small class="text-muted">{{ post.date_posted }}</small> -->

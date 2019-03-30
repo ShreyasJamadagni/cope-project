@@ -9,8 +9,8 @@ from django.conf import settings
 
 # Create your views here.
 def viewArticles(request):
-    packet = {'articles1': Article.objects.all(), 'title': "Published Articles"}
-    return render(request, 'articles/index.html', packet)
+    # packet = {'articles1': Article.objects.all(), 'title': "Published Articles"}
+    return render(request, 'articles/index.html', {'title': 'Published Articles', 'articles1': Article.objects.all()})
 
 @login_required
 def createArticle(request):
@@ -64,7 +64,7 @@ def review(request):
                 'Your article on COPE has been rejected',
                 'Article has been rejected',
                 settings.EMAIL_HOST_USER,
-                ['fineman3301@gmail.com'],
+                [request.user.email],
                 fail_silently=False
             )
             article.delete()
